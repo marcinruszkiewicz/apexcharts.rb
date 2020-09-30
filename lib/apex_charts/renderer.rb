@@ -45,7 +45,7 @@ module ApexCharts
             }
 
             window.addEventListener("turbolinks:load", createChart);
-            window.addEventListener("turbolinks:before-render", clearLogit);
+            window.addEventListener("turbolinks:before-render", clearChartEvents);
           })();
         DEFERRED
       else
