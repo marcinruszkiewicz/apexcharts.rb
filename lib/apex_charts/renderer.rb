@@ -39,13 +39,13 @@ module ApexCharts
             var createChart = function() {
               #{indent(js)}
             };
-            if (window.addEventListener) {
-              window.addEventListener("load", createChart, true);
-            } else if (window.attachEvent) {
-              window.attachEvent("onload", createChart);
-            } else {
-              createChart();
+
+            var clearChartEvents = function() {
+              window.removeEventListener("turbolinks:load", createChart);
             }
+
+            window.addEventListener("turbolinks:load", createChart);
+            window.addEventListener("turbolinks:before-render", clearLogit);
           })();
         DEFERRED
       else
